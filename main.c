@@ -11,6 +11,23 @@ int main() {
         solve();
 }
 
+int checkValidNumber (char* text)
+{
+
+       for(int i = 0 ; i <strlen(text) ; i++)
+       {
+           if (text[i] < 48 || text[i] > 57)
+           {
+               printf("Please Enter your input again:\n");
+               scanf("%s", text);
+               return checkValidNumber(text);
+           }
+       }
+       return 0;
+   
+}
+
+
 
 void solve()
 {
@@ -18,8 +35,13 @@ void solve()
     char second_number[MAX];
     printf("Please Enter your first number:\n");
     scanf("%s", first_number);
+    
+    checkValidNumber(first_number);
+    
+    
     printf("Please Enter your second number:\n");
     scanf("%s", second_number);
+    checkValidNumber(second_number);
     
     int output_size = strlen(first_number) +strlen(second_number);
 
