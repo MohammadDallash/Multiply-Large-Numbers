@@ -16,10 +16,11 @@ void solve()
 {
     char first_number[MAX];
     char second_number[MAX];
-    
+    printf("Please Enter your first number:\n");
     scanf("%s", first_number);
+    printf("Please Enter your second number:\n");
     scanf("%s", second_number);
-
+    
     int output_size = strlen(first_number) +strlen(second_number);
 
     int shifting, numO, numT;
@@ -62,6 +63,7 @@ void solve()
 
     if (output[output_size-1] != 0) printf("%i", output[output_size - 1]);
     
+    printf("The answer is:\n");
     for (int i = output_size - 2; i > -1  ; i--)
     {
         printf("%i", output[i]);
