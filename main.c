@@ -2,40 +2,41 @@
 #include <math.h>
 #include <string.h>
 
-void my();
+#define MAX 250
+
+void solve();
 
 int main() {
    
-        my();
-
+        solve();
 }
 
 
-void my()
+void solve()
 {
-    char inputOne[250];
-    char inputTwo[250];
+    char first_number[MAX];
+    char second_number[MAX];
     
-    scanf("%s", inputOne);
-    scanf("%s", inputTwo);
+    scanf("%s", first_number);
+    scanf("%s", second_number);
 
-    int totalSize = strlen(inputOne) +strlen(inputTwo);
+    int output_size = strlen(first_number) +strlen(second_number);
 
     int shifting, numO, numT;
 
-    int output[totalSize];
-    for (int i = 0; i < totalSize; i++)
+    int output[output_size];
+    for (int i = 0; i < output_size; i++)
     {
         output[i]=0;
     }
       
-    for(int i = 0 ; i <strlen(inputOne) ; i++)
+    for(int i = 0 ; i <strlen(first_number) ; i++)
      {
-        for (int j= 0 ; j < strlen(inputTwo); j++)
+        for (int j= 0 ; j < strlen(second_number); j++)
          {
-            shifting = (strlen(inputOne) -1 - i) +(strlen(inputTwo) -1 - j);
-            numO = ((inputOne[i]-48) * (inputTwo[j]-48)) % 10;
-            numT = floor((inputOne[i]-48) * (inputTwo[j]-48)/10);
+            shifting = (strlen(first_number) -1 - i) +(strlen(second_number) -1 - j);
+            numO = ((first_number[i]-48) * (second_number[j]-48)) % 10;
+            numT = floor((first_number[i]-48) * (second_number[j]-48)/10);
 
             if (output[0+shifting] + numO > 9)
             {
@@ -59,9 +60,9 @@ void my()
          }
      }
 
-    if (output[totalSize-1] != 0) printf("%i", output[totalSize - 1]);
+    if (output[output_size-1] != 0) printf("%i", output[output_size - 1]);
     
-    for (int i = totalSize - 2; i > -1  ; i--)
+    for (int i = output_size - 2; i > -1  ; i--)
     {
         printf("%i", output[i]);
         
